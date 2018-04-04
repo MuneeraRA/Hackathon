@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/form_img_size"
+        android:layout_weight="6"
+        android:paddingBottom="@dimen/form_image_padding_buttom"
+        android:scaleType="centerCrop"
+        android:src="@drawable/top_bg" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/txt_register_title"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_h2" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/edt_txt_margin_end_and_start"
+        android:layout_marginStart="@dimen/edt_txt_margin_end_and_start"
+        android:layout_marginTop="@dimen/register_edt_txt_margin_top"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/username_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_username"
+            android:inputType="text"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorBlack"
+            android:textColorHighlight="@color/colorGray"
+            android:textColorHint="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/email_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_betwen_edt"
+            android:hint="@string/txt_email"
+            android:inputType="textEmailAddress"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorBlack"
+            android:textColorHighlight="@color/colorGray"
+            android:textColorHint="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/password_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_betwen_edt"
+            android:hint="@string/txt_password"
+            android:inputType="textPassword"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorBlack"
+            android:textColorHighlight="@color/colorGray"
+            android:textColorHint="@color/colorBlack" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/creat_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/main_button_margin_l_and_r"
+        android:layout_marginStart="@dimen/main_button_margin_l_and_r"
+        android:layout_marginTop="@dimen/main_button_margin"
+        android:background="@drawable/rectangle"
+        android:text="@string/txt_create"
+        android:textColor="@color/colorWhite" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/switch_continer_top_margin">
+
+        <TextView
+            android:id="@+id/txt_has_acount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/switch_txt_margin_start"
+            android:layout_marginTop="@dimen/switch_txt_margin_top"
+            android:text="@string/you_have_an_account" />
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_marginStart="@dimen/second_button_start_margin"
+            android:layout_toEndOf="@+id/txt_has_acount"
+            android:background="@drawable/rectangle_pink"
+            android:text="@string/login_txt"
+            android:textColor="@color/colorWhite" />
+
+    </RelativeLayout>
+
+</LinearLayout>
