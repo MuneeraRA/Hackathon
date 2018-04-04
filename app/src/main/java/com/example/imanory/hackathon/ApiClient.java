@@ -1,4 +1,4 @@
-package com.example.imanory.hackathon.model.services;
+package com.example.imanory.hackathon;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
