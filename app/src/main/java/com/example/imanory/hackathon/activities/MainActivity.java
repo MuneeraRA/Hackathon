@@ -1,8 +1,10 @@
-package com.example.imanory.hackathon;
+package com.example.imanory.hackathon.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.example.imanory.hackathon.R;
 
 public class MainActivity extends AppCompatActivity {
 
