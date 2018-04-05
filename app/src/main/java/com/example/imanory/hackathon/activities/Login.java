@@ -45,13 +45,13 @@ public class Login  extends AppCompatActivity implements LoginView{
 
     @OnClick(R.id.login_btn)
     public void login() {
-       if (emailEdt.getText().toString().trim().length()>0 || passwordEdt.getText().toString().length()>0){
+       if (emailEdt.getText().toString().trim().length()>0 && passwordEdt.getText().toString().length()>0){
 
            if (Base.isEmailValid(emailEdt.getText().toString().trim())){
             /**/loginPresenter.getLoginResult(emailEdt.getText().toString(),passwordEdt.getText().toString());}
        else {
            // Not Valid Email
-           Toast.makeText(this,this.getResources().getString(R.string.email_empty_error_message),Toast.LENGTH_LONG).show();
+           Toast.makeText(this,this.getResources().getString(R.string.invalid_email_error_message),Toast.LENGTH_LONG).show();
            }
        }
         else {
@@ -66,7 +66,13 @@ public class Login  extends AppCompatActivity implements LoginView{
     }
     @Override
     public void setResult(RegisterResponse result) {
-      Toast.makeText(this,result.getError(),Toast.LENGTH_LONG).show();
-       // Toast.makeText(this,result.getStatus(),Toast.LENGTH_LONG).show();
+        if (result.getStatus()==0){
+          // logged the user to the system & save token or id :
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+      else {
+       Toast.makeText(this,result.getError(),Toast.LENGTH_LONG).show();}
     }
 }

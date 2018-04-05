@@ -11,5 +11,6 @@
     <string name="you_have_an_account">Do you have an account?</string>
     <string name="email_empty_error_message"> Please enter an email address </string>
     <string name="empty_fields_error_message"> Please fill all empty fields address </string>
+    <string name="invalid_email_error_message" > Please provide a valid email address </string>
 
 </resources>

@@ -9,11 +9,11 @@ import com.google.gson.annotations.SerializedName;
 public class RegisterResponse {
 
     @SerializedName("status")
-    private String Status;
+    private int Status;
     @SerializedName("error")
     private String Error;
 
-    public String getStatus() {
+    public int getStatus() {
         return Status;
     }
 

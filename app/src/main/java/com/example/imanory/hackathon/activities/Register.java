@@ -16,6 +16,7 @@ import com.example.imanory.hackathon.presenter.RegisterPresenter;
 import com.example.imanory.hackathon.view.RegisterView;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -36,31 +37,25 @@ Button Create;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        ButterKnife.bind(this);
         registerPresenter = new RegisterImp(Register.this);
-        Create=(Button)findViewById(R.id.creat_btn);
-        Create.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            registerPresenter.getRegisterResult("jana72","1234","Jana.s25@gmail.com");
-        }
-    });
 
         }
 
 
     @OnClick(R.id.creat_btn)
-    public void create() {
-        if (emailEdt.getText().toString().trim().length()>0){
+    public void createAccount() {
+        if (emailEdt.getText().toString().trim().length()>0 && passwordEdt.getText().toString().length()>0 && usernameEdt.getText().toString().length()>0 ){
 
             if (Base.isEmailValid(emailEdt.getText().toString().trim())){
             /**/registerPresenter.getRegisterResult(usernameEdt.getText().toString(),passwordEdt.getText().toString(),emailEdt.getText().toString());}
             else {
                 // Not Valid Email
-                Toast.makeText(this,this.getResources().getString(R.string.email_empty_error_message),Toast.LENGTH_LONG).show();
+                Toast.makeText(this,this.getResources().getString(R.string.invalid_email_error_message),Toast.LENGTH_LONG).show();
             }
         }
         else {
-            Toast.makeText(this,this.getResources().getString(R.string.email_empty_error_message),Toast.LENGTH_LONG).show();
+            Toast.makeText(this,this.getResources().getString(R.string.empty_fields_error_message),Toast.LENGTH_LONG).show();
 
         }
     }
@@ -72,8 +67,15 @@ Button Create;
     }
     @Override
     public void setResult(RegisterResponse result) {
-        Toast.makeText(this,result.getError(),Toast.LENGTH_LONG).show();
-        // Toast.makeText(this,result.getStatus(),Toast.LENGTH_LONG).show();
+
+        if (result.getStatus()==0){
+            // logged the user to the system & save token or id :
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else {
+            Toast.makeText(this,result.getError(),Toast.LENGTH_LONG).show();}
     }
 
 }

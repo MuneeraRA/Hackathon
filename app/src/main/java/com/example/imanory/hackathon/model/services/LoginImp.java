@@ -1,6 +1,9 @@
 package com.example.imanory.hackathon.model.services;
 
+import android.widget.Toast;
+
 import com.example.imanory.hackathon.ApiClient;
+import com.example.imanory.hackathon.R;
 import com.example.imanory.hackathon.model.response.RegisterResponse;
 import com.example.imanory.hackathon.presenter.LoginPresenter;
 import com.example.imanory.hackathon.view.LoginView;
@@ -36,6 +39,7 @@ public class LoginImp implements LoginPresenter {
             }
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
+
             }
         });
         return call;
